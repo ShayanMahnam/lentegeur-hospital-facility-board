@@ -1,0 +1,1 @@
+the `/client/src/utils` folder is used to store Utility functions that are globally reusable across the application
