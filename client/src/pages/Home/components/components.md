@@ -1,0 +1,1 @@
+the `/client/src/Home/components` folder is for Components that are specific to the Home Page

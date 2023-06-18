@@ -1,0 +1,1 @@
+the `/client/src/AboutUs/components` folder is for Components that are specific to the AboutUs Page

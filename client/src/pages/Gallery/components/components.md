@@ -1,0 +1,1 @@
+the `/client/src/Gallery/components` folder is for Components that are specific to the Gallery Page
