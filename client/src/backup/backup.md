@@ -1,0 +1,1 @@
+the `/client/src/backup` folder contains files that are no longer used from the initial clone of the original repository
