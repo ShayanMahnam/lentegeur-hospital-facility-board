@@ -1,0 +1,1 @@
+the `/client/src/pages` folder is used to contain each separate Page in its own sub-folder
