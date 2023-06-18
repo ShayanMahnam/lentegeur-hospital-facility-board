@@ -1,0 +1,1 @@
+the `/client/src/components` folder is for globally re-usable Components that are not specific to a Page
