@@ -77,6 +77,9 @@
 		"helmet": "^6.1.5",
 		"morgan": "^1.10.0",
 		"pg": "^8.10.0",
+		"photoswipe": "^5.3.7",
+		"react-grid-gallery": "^1.0.0",
+		"react-photoswipe-gallery": "^2.2.7",
 		"winston": "^3.8.2"
 	},
 	"engines": {
