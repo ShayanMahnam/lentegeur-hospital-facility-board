@@ -20,9 +20,7 @@
 		"start": "node dist/server.js",
 		"lint:eslint": "eslint .",
 		"lint:fix": "npm run lint:eslint -- --fix && npm run lint:prettier -- --write",
-		"lint:prettier": "prettier .",
-		"prenetlify": "npm run cleanup && npm run build:client",
-    "netlify": "netlify deploy --prod --dir ./dist/static"
+		"lint:prettier": "prettier ."
 	},
 	"repository": {
 		"type": "git",
