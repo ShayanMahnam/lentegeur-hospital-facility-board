@@ -4,6 +4,7 @@
 // I disabled this until find a solution for them
 import { Gallery, Item } from "react-photoswipe-gallery";
 import "photoswipe/dist/photoswipe.css";
+import "./GalleryPage.css";
 
 const GalleryPage = () => {
 	const smallItemStyles = {
@@ -59,45 +60,55 @@ const GalleryPage = () => {
 			height: "1066",
 			caption: "Photo of bear by Thomas Lefebvre",
 		},
+		{
+			original:
+				"https://farm6.staticflickr.com/5584/14985868676_b51baa4071_h.jpg",
+			thumbnail:
+				"https://farm6.staticflickr.com/5584/14985868676_4b802b932a_m.jpg",
+			width: "1600",
+			height: "1066",
+			caption: "Photo of river sunset by Michael Hull",
+		},
 	];
 
-
 	return (
-		<Gallery>
-			<div
-				style={{
-					display: "grid",
-					gridTemplateColumns: "240px 171px 171px",
-					gridTemplateRows: "114px 114px",
-					gridGap: 12,
-				}}
-			>
-				{items.map((item, index) => (
-					<Item
-						key={index}
-						original={item.original}
-						thumbnail={item.thumbnail}
-						width={item.width}
-						height={item.height}
-						caption={item.caption}
-					>
-						{({ ref, open }) => (
-							<img
-								style={
-									index === 0
-										? { ...smallItemStyles, cursor: "pointer" }
-										: smallItemStyles
-								}
-								src={item.thumbnail}
-								ref={ref}
-								onClick={open}
-								alt="picture"
-							/>
-						)}
-					</Item>
-				))}
-			</div>
-		</Gallery>
+		<section className="gallery-page">
+			<Gallery>
+				<div
+					style={{
+						display: "grid",
+						gridTemplateColumns: "150px 150px",
+						gridAutoRows: "100px 150px",
+						gridGap: 12,
+					}}
+				>
+					{items.map((item, index) => (
+						<Item
+							key={index}
+							original={item.original}
+							thumbnail={item.thumbnail}
+							width={item.width}
+							height={item.height}
+							caption={item.caption}
+						>
+							{({ ref, open }) => (
+								<img
+									style={{
+										...smallItemStyles,
+										cursor: "pointer",
+										gridColumn: index % 3 === 2 ? "1 / span 2" : undefined,
+									}}
+									src={item.thumbnail}
+									ref={ref}
+									onClick={open}
+									alt="picture"
+								/>
+							)}
+						</Item>
+					))}
+				</div>
+			</Gallery>
+		</section>
 	);
 };
 
