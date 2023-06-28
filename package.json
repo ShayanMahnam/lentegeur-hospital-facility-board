@@ -79,6 +79,7 @@
 		"pg": "^8.10.0",
 		"photoswipe": "^5.3.7",
 		"react-photoswipe-gallery": "^2.2.7",
+		"pigeon-maps": "^0.21.3",
 		"winston": "^3.8.2"
 	},
 	"engines": {
