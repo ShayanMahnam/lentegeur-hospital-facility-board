@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 import "./Footer.css";
+import Subscription from "../Subscription/Subscription";
 
 const Footer = () => {
 	return (
@@ -76,6 +77,7 @@ const Footer = () => {
 						</li>
 					</ul>
 				</div>
+				<Subscription />
 			</div>
 		</footer>
 	);
