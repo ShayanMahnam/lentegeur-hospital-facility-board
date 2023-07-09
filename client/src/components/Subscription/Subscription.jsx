@@ -1,5 +1,6 @@
 import "./Subscription.css";
 import { useFormFields, useMailChimpForm } from "use-mailchimp-form";
+import { useState, useEffect } from "react";
 
 function Subscription() {
 	// tried to use env file but didn't work
@@ -11,11 +12,44 @@ function Subscription() {
 	const { fields, handleFieldChange } = useFormFields({
 		EMAIL: "",
 	});
+	const [errorMessage, setErrorMessage] = useState("");
+	const [value, setValue] = useState("");
+	const [msg, setMsg] = useState("");
 
-	const handleFormSubmit = (event) => {
+	const handleFormSubmit = async (event) => {
 		event.preventDefault();
-		handleSubmit(fields);
-		handleFieldChange("EMAIL", ""); // Clear the EMAIL field its not working if you know how to fix it please try
+
+		// Email pattern validation using regex
+		const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+		if (!emailPattern.test(value)) {
+			setErrorMessage("Invalid email format.");
+			return;
+		}
+		setErrorMessage("");
+
+		await handleSubmit(fields);
+		setValue("");
+	};
+
+	useEffect(() => {
+		if (message) {
+			setMsg(message);
+
+			const timeoutId = setTimeout(() => {
+				setMsg("");
+			}, 3000);
+
+			return () => {
+				clearTimeout(timeoutId);
+			};
+		}
+	}, [message]);
+
+	const handleValueChange = (event) => {
+		event.preventDefault();
+		handleFieldChange(event);
+		setValue(event.target.value);
 	};
 
 	return (
@@ -26,15 +60,16 @@ function Subscription() {
 					id="EMAIL"
 					className="subscribe-input"
 					type="email"
-					value={fields.EMAIL}
-					onChange={handleFieldChange}
+					value={value}
+					onChange={handleValueChange}
 					placeholder="example@domain.com"
 				/>
 				<button className="subscribe-button">Subscribe</button>
 			</form>
 			{loading && "submitting"}
-			{error && message}
-			{success && message}
+			{errorMessage && <p>{errorMessage}</p>}
+			{error && <p>{msg}</p>}
+			{success && <p>{msg}</p>}
 		</section>
 	);
 }
