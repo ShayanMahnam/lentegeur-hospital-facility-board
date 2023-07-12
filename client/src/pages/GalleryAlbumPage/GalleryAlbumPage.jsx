@@ -1,10 +1,12 @@
-import "./GalleryAlbumPage.css";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import Line from "../../components/Line/Line";
 import Loading from "../../components/Loading/Loading";
 import ErrorComponent from "../../components/ErrorComponent/ErrorComponent";
+import ImageGallery from "react-image-gallery";
+import "react-image-gallery/styles/css/image-gallery.css";
+import "./GalleryAlbumPage.css";
 
 const GalleryAlbumPage = () => {
 	const { slug } = useParams();
@@ -41,18 +43,13 @@ const GalleryAlbumPage = () => {
 					<h2 className="gallery-album-title">{galleryAlbumData.title}</h2>
 					<p className="gallery-album-summary">{galleryAlbumData.summary}</p>
 					<div className="gallery-album-list">
-						{galleryAlbumData.images.map((image) => {
-							const { id, url, alternativeText } = image;
-							return (
-								<div key={id} className="gallery-album-image-container">
-									<img
-										src={url}
-										alt={alternativeText}
-										className="gallery-album-image"
-									/>
-								</div>
-							);
-						})}
+						<ImageGallery
+							items={galleryAlbumData.images.map((image) => ({
+								original: image.url,
+								thumbnail: image.url,
+								description: image.alternativeText,
+							}))}
+						/>
 					</div>
 				</div>
 			)}
