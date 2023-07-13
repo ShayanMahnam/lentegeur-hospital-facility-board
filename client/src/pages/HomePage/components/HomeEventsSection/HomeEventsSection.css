@@ -12,8 +12,13 @@
 }
 
 .home-events-line {
-	background-color: var(--white);
-	width: 50%;
+	background-image: linear-gradient(
+		90deg,
+		hsl(0deg 0% 100%) 0%,
+		hsl(133deg 48% 68%) 50%,
+		hsl(133deg 49% 36%) 100%
+	);
+	width: 85%;
 }
 
 .home-events-container {

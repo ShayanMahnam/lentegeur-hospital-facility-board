@@ -12,6 +12,11 @@
 }
 
 .home-news-line {
-	background-color: var(--green07);
-	width: 95%;
+	background-image: linear-gradient(
+		90deg,
+		var(--green17) 0%,
+		var(--green12) 50%,
+		var(--green17) 100%
+	);
+	width: 85%;
 }
