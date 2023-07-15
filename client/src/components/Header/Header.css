@@ -1,7 +1,13 @@
 header {
-	background: linear-gradient(
+	/* background: linear-gradient(
 		180deg,
 		hsl(126, 73%, 5%) 0%,
+		hsl(126, 73%, 25%) 100%
+	); */
+	background: linear-gradient(
+		180deg,
+		hsl(126, 73%, 10%) 0%,
+		hsl(126, 73%, 20%) 33%,
 		hsl(126, 73%, 25%) 100%
 	);
 }
